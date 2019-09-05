@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TabIndexBug.TestPages">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HeightRequest="40" BackgroundColor="#07B3F0">
+                <Label Text="备件号1" WidthRequest="300" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                <ScrollView x:Name="headscroller" Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Scrolled="Headscroller_Scrolled">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="备件号2" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                        <Label Text="备件号3" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                        <Label Text="备件号4" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                        <Label Text="备件号5" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                        <Label Text="备件号6" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <ListView x:Name="listview" RowHeight="40" SeparatorColor="#cbcbcb" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding ProductCode}" WidthRequest="300"  HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Scrolled="Itemscroller_Scrolled">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding ProductCode}" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                        <Label Text="{Binding ProductCode}" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                        <Label Text="{Binding ProductCode}" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                        <Label Text="{Binding ProductCode}" WidthRequest="100" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </ScrollView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
